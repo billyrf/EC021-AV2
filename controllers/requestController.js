@@ -3,7 +3,7 @@ const axios = require('axios');
 const Meme = require('../models/meme');
 
 module.exports = {
-    login(req, res) {
+    async login(req, res) {
         let { body } = req;
         let { username, password } = body
 

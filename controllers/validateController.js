@@ -10,15 +10,15 @@ module.exports = {
             return res.send(403,'Forneça o token para continuar');
         }
 
-        axios.post('https://ec021-av2-auth.herokuapp.com/auth/validateToken',{token})
-        .then((response) => {
-            return res.json(response.status, response.data);
-        }).catch((error) => {
-            return res.json(error.response.status, error.response.data);
-        });
+        // axios.post('https://ec021-av2-auth.herokuapp.com/auth/validateToken',{token})
+        // .then((response) => {
+        //     return res.json(response.status, response.data);
+        // }).catch((error) => {
+        //     return res.json(error.response.status, error.response.data);
+        // });
         return next();
     },
-    validateBody(req, res, next) {
+    async validateBody(req, res, next) {
         let { body } = req;
     
         if (verifyBody(body)) {
