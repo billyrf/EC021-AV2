@@ -2,11 +2,14 @@ require('dotenv').config();
 const restify = require('restify');
 const mongoose = require('mongoose');
 const DB = require('./dbConfiguration');
-const loginRouter = require('./requests/login');
+const loginRouter = require('./requests/login')
+const createMemeRouter = require('./requests/createMeme');
 const server = restify.createServer();
 
 loginRouter.applyRoutes(server);
+createMemeRouter.applyRoutes(server);
 
+server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser());
 server.use(restify.plugins.bodyParser());
 
@@ -15,7 +18,7 @@ server.listen(process.env.PORTA, function () {
 
     mongoose.connect(DB.URL, DB.CONFIG, function (error) {
         if (!error) {
-            console.log('Conctado ao banco');
+            console.log('Conectado ao banco');
         } else {
             console.log('Erro ao conectar no MongoDB:'+ error);
         }
