@@ -4,6 +4,6 @@ const validateController = require('../controllers/validateController');
 
 const routerInstance = new Router();
 
-routerInstance.post('/auth/login', validateController.validateBody , requestController.login);
+routerInstance.patch('/meme', validateController.validateToken, requestController.updateMeme);
 
 module.exports = routerInstance;
