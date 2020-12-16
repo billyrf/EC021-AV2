@@ -4,8 +4,8 @@ const Meme = require('../models/meme');
 
 module.exports = {
     login(req, res) {
-        const { body } = req;
-        const { username, password } = body
+        let { body } = req;
+        let { username, password } = body
 
         axios.post('https://ec021-av2-auth.herokuapp.com/auth/login', {
             username,
@@ -16,19 +16,10 @@ module.exports = {
                 return res.json(error.response.status, error.response.data);
             });
     },
-    createMeme(req, res) {
-        const { body } = req;
-        const { titulo, descricao, ano } = body;
+    async createMeme(req, res) {
     
-        const resposta = Meme.create(
-            {
-                titulo,
-                descricao,
-                ano
-            }
-        );
+        let resposta = await Meme.create(req.body)
     
         return res.json(201, resposta);
-    
     }
 }
