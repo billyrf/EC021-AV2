@@ -7,6 +7,7 @@ const createMemeRouter = require('./requests/createMeme');
 const validateTokenRouter = require('./requests/validateToken');
 const searchMemeRouter = require('./requests/searchMeme');
 const updateMemeRouter = require('./requests/updateMeme');
+const deleteMemeRouter = require('./requests/deleteMeme');
 const server = restify.createServer();
 
 loginRouter.applyRoutes(server);
@@ -14,6 +15,7 @@ createMemeRouter.applyRoutes(server);
 validateTokenRouter.applyRoutes(server);
 searchMemeRouter.applyRoutes(server);
 updateMemeRouter.applyRoutes(server);
+deleteMemeRouter.applyRoutes(server);
 
 server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser());
