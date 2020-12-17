@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "4d7ddfad-effc-4376-a51e-3d7626888581",
+		"name": "AV2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b0ae099f-519b-4869-adc5-2e87df8f442b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var responseData = pm.response.json();\r",
+							"\r",
+							"pm.environment.set(\"token\", responseData.token);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8f294238-6a84-4771-bb17-74b88b8d523d",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"username\": \"billy.rodrigues\",\r\n \"password\": \"1223\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}:{{port}}/auth/login",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createMeme",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d688a790-8691-4544-928b-06d40ebebc68",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"titulo\": \"Meme do caixão\",\r\n \"descricao\": \"O meme do caixão rodou o mundo, com o grupo de homens de Gana que carrega urnas dançando, viralizando com sua cerimônia bem-humorada para um momento de luto\",\r\n \"ano\": 2020\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}:{{port}}/meme",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"meme"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchMeme",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{server}}:{{port}}/meme?id=",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"meme"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateMeme",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"titulo\": \"Forever Alone\",\r\n \"descricao\": \"Part of a series on Rage Comics\",\r\n \"ano\": 2012\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}:{{port}}/meme?id=5fda9f4fbe87e21d9c8f9121",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"meme"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5fda9f4fbe87e21d9c8f9121"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteMeme",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{server}}:{{port}}/meme?id=5fda9f4fbe87e21d9c8f9121",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"meme"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5fda9f4fbe87e21d9c8f9121"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "61d5da55-5821-4239-bafd-e575328e7cf5",
+			"key": "token",
+			"value": "token"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
