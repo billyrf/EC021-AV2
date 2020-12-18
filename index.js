@@ -22,7 +22,7 @@ server.use(restify.plugins.queryParser());
 server.use(restify.plugins.bodyParser());
 
 server.listen(process.env.PORTA, function () {
-    console.log("Servidor rodando...");
+    console.log(`Servidor rodando em ${server.url}`);
 
     mongoose.connect(DB.URL, DB.CONFIG, function (error) {
         if (!error) {
