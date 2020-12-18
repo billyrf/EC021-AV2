@@ -24,7 +24,12 @@ Para iniciar a aplicação execute os seguintes comandos no terminal dentro past
     npm start
 
 <strong>Executando no postman </strong>
-No postman, clique em import -> Upload files, procure pela pasta do projeto, abra a pasta postman e importe o Postman Collection e environment.
+
+No postman, clique em import -> Upload files, procure pela pasta do projeto, abra a pasta postman selecione o Postman Collection/environment e clique em <i>import</i>.
+
+![](/tutorial_images/upload.png)![](/tutorial_images/collection_environment.png)
+
+Agora precisamos escolher o environment.
 
 ## Criar a imagem Docker
 Configurar o docker: `docker build -t EC021 .`
