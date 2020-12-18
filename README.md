@@ -16,6 +16,11 @@ O livro “O Gene Egoísta” popularizou a ideia de que a seleção natural aco
 
 <strong>Nodemon: </strong> <i>Utilitário que monitora quaisquer mudanças em seu código e automaticamente reinicia seu servidor.</i>
 
+## Criar a imagem Docker
+Configurar o docker: `docker build -t EC021 .`
+
+Rodar o servidor na porta 5000: `docker run -p 5000:5000 -it EC021`
+
 ## Execução
 
 Para iniciar a aplicação execute os seguintes comandos no terminal dentro pasta do projeto:
@@ -29,9 +34,8 @@ No postman, clique em import -> Upload files, procure pela pasta do projeto, abr
 
 ![](/tutorial_images/upload.png)![](/tutorial_images/collection_environment.png)
 
-Agora precisamos escolher o environment.
+Agora precisamos escolher o environment:
 
-## Criar a imagem Docker
-Configurar o docker: `docker build -t EC021 .`
+![](/tutorial_images/change_environmnt.png)
 
-Rodar o servidor na porta 5000: `docker run -p 5000:5000 -it EC021`
+Após a escolha do environment todo o ambiente estará pronto, agora basta fazer o login e escolher uma das opções para os memes: Criar, pesquisar, deletar, atualizar.
