@@ -42,6 +42,6 @@ Após a escolha do environment todo o ambiente estará pronto, agora basta fazer
 
 ## Autores:
 
-Billy Rodrigues Francisco Mafra
+Billy Rodrigues Francisco Mafra (https://github.com/billyrf)
 
-Victor Fernandes Mariano Marcelino
+Victor Fernandes Mariano Marcelino (https://github.com/vMarcelino)
