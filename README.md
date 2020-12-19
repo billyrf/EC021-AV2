@@ -39,3 +39,9 @@ Agora precisamos escolher o environment:
 ![](/tutorial_images/change_environmnt.png)
 
 Após a escolha do environment todo o ambiente estará pronto, agora basta fazer o login e escolher uma das opções para os memes: Criar, pesquisar, deletar, atualizar.
+
+## Autores:
+
+Billy Rodrigues Francisco Mafra (https://github.com/billyrf)
+
+Victor Fernandes Mariano Marcelino (https://github.com/vMarcelino)
