@@ -7,7 +7,7 @@ const MemeSchema = new Schema(
         ano: Number
     },
     {
-        timestamps: true 
+        timestamps: true
     }
 );
 

@@ -28,7 +28,7 @@ server.listen(process.env.PORTA, function () {
         if (!error) {
             console.log('Conectado ao banco');
         } else {
-            console.log('Erro ao conectar no MongoDB:'+ error);
+            console.log('Erro ao conectar no MongoDB:' + error);
         }
     });
 });
