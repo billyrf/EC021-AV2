@@ -6,10 +6,24 @@ module.exports = {
         let { headers } = req;
         let { token } = headers;
 
+        let config = {
+            headers: {token}
+        }
+
         if (!token) {
             return res.send(403,{msg:'Forneça o token para continuar'});
         }
-        return next();
+       
+        await axios.post('https://ec021-av2-auth.herokuapp.com/auth/validateToken', {}, config)
+        .then(function(response){
+            if (response.status != 200) {
+                return res.send(response.status, response.data.msg);
+            }
+            return next();
+        }).catch(function(error){
+                return res.json(error.response.status, error.response.data.msg);
+        });
+
     },
     async validateBody(req, res, next) {
         let { body } = req;
